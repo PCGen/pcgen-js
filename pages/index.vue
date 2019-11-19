@@ -1,39 +1,67 @@
 <template>
   <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        pcgen-js
-      </h1>
-      <h2 class="subtitle">
-        pcgen javascript vue project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+    <div class="title">
+      <b-tabs content-class="mt-3">
+        <b-tab title="Summary" active>
+          <Summary />
+        </b-tab>
+        <b-tab title="Ancestry" disabled>
+          <p>I'm the second tab</p>
+        </b-tab>
+        <b-tab title="Templates" disabled>
+          <p>I'm a disabled tab!</p>
+        </b-tab>
+        <b-tab title="Class">
+          <Classes />
+        </b-tab>
+        <b-tab title="Feats & Abilities" disabled>
+          <p>I'm a disabled tab!</p>
+        </b-tab>
+        <b-tab title="Domains" disabled>
+          <p>I'm a disabled tab!</p>
+        </b-tab>
+        <b-tab title="Spells" disabled>
+          <p>I'm a disabled tab!</p>
+        </b-tab>
+        <b-tab title="Inventory" disabled>
+          <p>I'm a disabled tab!</p>
+        </b-tab>
+        <b-tab title="Description" disabled>
+          <p>I'm a disabled tab!</p>
+        </b-tab>
+        <b-tab title="Temporary Bonuses" disabled>
+          <p>I'm a disabled tab!</p>
+        </b-tab>
+        <b-tab title="Companions" disabled>
+          <p>I'm a disabled tab!</p>
+        </b-tab>
+        <b-tab title="Character Sheet" disabled>
+          <p>I'm a disabled tab!</p>
+        </b-tab>
+      </b-tabs>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import { mapGetters } from 'vuex'
+import Summary from './Summary'
+import Classes from './Classes'
 
 export default {
-  components: {
-    Logo
+  components: { Classes, Summary },
+  // components: {
+  //
+  // },
+  computed: {
+    counter () {
+      return this.$store.state.counter
+    }
+  },
+  methods: {
+    ...mapGetters({
+      theClasses: 'classes/get'
+    })
   }
 }
 </script>
@@ -41,19 +69,28 @@ export default {
 <style>
 .container {
   margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  /*min-height: 100vh;*/
+  display: grid;
+  /*justify-content: center;*/
+  /*align-items: center;*/
+  /*text-align: center;*/
+  width: 100vw;
+  height: 100vh;
+  background-color: whitesmoke;
+  grid-template-rows: repeat(12, 1fr);
+  align-items: stretch;
+  grid-template-areas:
+    "title title title"
+    "main main sidebar"
+    "footer footer footer";
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
+  /*font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,*/
+    /*'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;*/
+  /*display: block;*/
+  /*font-weight: 300;*/
+  /*font-size: 100px;*/
   color: #35495e;
   letter-spacing: 1px;
 }
