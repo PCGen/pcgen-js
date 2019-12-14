@@ -20,3 +20,13 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+
+
+Support for Docker
+
+ docker-compose up --build -d
+
+
+This will build the Docker image and run it. Access on http://localhost:4444
+
