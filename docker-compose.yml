@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  nuxt:
+    build: ./
+    container_name: pcgen-js
+    restart: always
+    ports:
+      - "4444:3333"
+    command:
+      "npm run start"
+
