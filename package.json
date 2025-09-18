@@ -13,7 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "nuxt": "^3.12.4",
+    "nuxt": "^3.19.0",
     "bootstrap-vue": "^2.0.0",
     "bootstrap": "^5.0.0",
     "@nuxtjs/axios": "^5.13.6"
